@@ -1,0 +1,45 @@
+name: Deploy to Netlify
+
+on:
+  push:
+    branches:
+      - main # Altere para a branch que você deseja monitorar
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+
+    - name: Cache Docker layers
+      uses: actions/cache@v2
+      with:
+        path: /tmp/.buildx-cache
+        key: ${{ runner.os }}-buildx-${{ github.sha }}
+        restore-keys: |
+          ${{ runner.os }}-buildx-
+
+    - name: Docker Compose Build
+      run: docker-compose up --build -d
+
+    - name: Wait for services to be ready
+      run: sleep 30 # Ajuste este tempo conforme necessário para garantir que os serviços estejam prontos
+
+    - name: Copy build artifacts
+      run: |
+        mkdir -p build_output
+        docker cp $(docker-compose ps -q app):/app/public build_output/ # Copiando do diretório 'public'
+
+    - name: Install Netlify CLI
+      run: npm install -g netlify-cli
+
+    - name: Deploy to Netlify
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      run: netlify deploy --dir=build_output --prod # Certifique-se que 'build_output' é o diretório correto
