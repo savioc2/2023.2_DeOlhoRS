@@ -10,6 +10,7 @@ WORKDIR /app
 
 # Copiar os arquivos de configuração do npm e requirements.txt
 COPY package.json ./
+COPY package-lock.json ./
 COPY requirements.txt ./
 
 # Limpar cache do npm e instalar dependências do npm
@@ -25,12 +26,18 @@ RUN pip3 install pylint
 # Copiar o restante do código da aplicação para o diretório de trabalho no contêiner
 COPY . .
 
-# Verificar instalação do npm
+# Verificar a instalação do npm
 RUN npm --version
 RUN node --version
 
+# Listar scripts definidos no package.json
+RUN cat package.json
+
+# Listar o conteúdo do diretório de trabalho
+RUN ls -la /app
+
 # Build da aplicação com logs detalhados
-RUN npm run build --if-present
+RUN npm run build
 
 # Expor a porta em que a aplicação estará rodando
 EXPOSE 5173

@@ -25,13 +25,16 @@ jobs:
           ${{ runner.os }}-buildx-
 
     - name: Docker Compose Build
-      run: docker-compose up --build -d
+      run: docker-compose up --build
+
+    - name: Check Docker Logs
+      run: docker-compose logs app
 
     - name: Wait for services to be ready
       run: sleep 30 # Ajuste este tempo conforme necessário para garantir que os serviços estejam prontos
 
     - name: Copy build artifacts
-      run: 
+      run: |
         mkdir -p build_output
         docker cp $(docker-compose ps -q app):/app/dist build_output/ # Verifique se /app/dist é o diretório correto
 
