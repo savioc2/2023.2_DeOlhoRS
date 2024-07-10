@@ -31,7 +31,7 @@ jobs:
       run: sleep 30 # Ajuste este tempo conforme necessário para garantir que os serviços estejam prontos
 
     - name: Copy build artifacts
-      run: |
+      run: 
         mkdir -p build_output
         docker cp $(docker-compose ps -q app):/app/dist build_output/ # Verifique se /app/dist é o diretório correto
 

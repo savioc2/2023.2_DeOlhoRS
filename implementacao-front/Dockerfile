@@ -25,14 +25,20 @@ RUN pip3 install pylint
 # Copiar o restante do código da aplicação para o diretório de trabalho no contêiner
 COPY . .
 
-# Build da aplicação
-RUN npm run build
+# Verificar instalação do npm
+RUN npm --version
+RUN node --version
+
+# Build da aplicação com logs detalhados
+RUN npm run build --if-present
 
 # Expor a porta em que a aplicação estará rodando
 EXPOSE 5173
 
 # Comando para rodar o Pylint
-CMD pylint Camada_Dados/extrair.py Camada_Dados/regex.py Camada_Dados/web_scraper.py 
+RUN pylint Camada_Dados/extrair.py 
+RUN pylint Camada_Dados/regex.py 
+RUN pylint Camada_Dados/web_scraper.py 
 
 # Comando para rodar a aplicação
 CMD ["npm", "run", "dev"]
