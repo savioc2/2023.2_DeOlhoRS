@@ -33,7 +33,7 @@ jobs:
     - name: Copy build artifacts
       run: |
         mkdir -p build_output
-        docker cp $(docker-compose ps -q app):/app/public build_output/ # Copiando do diretório 'public'
+        docker cp $(docker-compose ps -q app):/app/dist build_output/ # Verifique se /app/dist é o diretório correto
 
     - name: Install Netlify CLI
       run: npm install -g netlify-cli
