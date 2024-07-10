@@ -42,7 +42,9 @@ RUN npm run build
 EXPOSE 5173
 
 # Comando para rodar o Pylint
-CMD pylint Camada_Dados/extrair.py Camada_Dados/regex.py Camada_Dados/web_scraper.py 
+RUN pylint Camada_Dados/extrair.py  
+RUN pylint Camada_Dados/regex.py
+RUN pylint Camada_Dados/web_scraper.py
 
 # Comando para rodar a aplicação
 CMD ["npm", "run", "dev"]
