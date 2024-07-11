@@ -23,15 +23,16 @@ jobs:
         key: ${{ runner.os }}-buildx-${{ github.sha }}
         restore-keys: |
           ${{ runner.os }}-buildx-
-
     - name: Docker Compose Build
-      run: docker-compose run --rm build
+      run: docker-compose up --build -d
+
+    - name: Wait for services to be ready
+      run: sleep 30 # Ajuste este tempo conforme necessário para garantir que os serviços estejam prontos
 
     - name: Copy build artifacts
       run: |
         mkdir -p build_output
-        docker cp $(docker-compose ps -q build):/app/build/. build_output/ # Verifique se /app/build é o diretório correto
-
+        docker cp $(docker-compose ps -q app):/app/public build_output/ # Copiando do diretório 'public'
     - name: Install Netlify CLI
       run: npm install -g netlify-cli
 
@@ -39,4 +40,4 @@ jobs:
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      run: netlify deploy --dir=build_output --prod # Certifique-se que 'build_output' é o diretório correto
+      run: netlify deploy --dir=build_output --prod
