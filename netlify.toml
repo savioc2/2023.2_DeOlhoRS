@@ -1,0 +1,7 @@
+[build]
+  base = "implementacao-front"
+  publish = "build_output"
+  command = "docker-compose run build"
+
+[context.production.environment]
+  NODE_VERSION = "14"

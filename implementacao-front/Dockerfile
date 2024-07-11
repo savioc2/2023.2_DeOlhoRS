@@ -19,30 +19,11 @@ RUN npm install --legacy-peer-deps
 # Instalar dependências Python
 RUN pip3 install -r requirements.txt
 
-# Instalar Pylint
-RUN pip3 install pylint
-
 # Copiar o restante do código da aplicação para o diretório de trabalho no contêiner
 COPY . .
 
-# Verificar a instalação do npm
-RUN npm --version
-RUN node --version
-
-# Listar scripts definidos no package.json
-RUN cat package.json
-
-# Listar o conteúdo do diretório de trabalho
-RUN ls -la /app
-
-# Build da aplicação com logs detalhados
-RUN npm run build
-
 # Expor a porta em que a aplicação estará rodando
 EXPOSE 5173
-
-# Comando para rodar o Pylint
-CMD pylint Camada_Dados/extrair.py Camada_Dados/regex.py Camada_Dados/web_scraper.py 
 
 # Comando para rodar a aplicação
 CMD ["npm", "run", "dev"]
