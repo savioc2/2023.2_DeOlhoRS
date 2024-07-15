@@ -1,5 +1,5 @@
 [build]
-  command = "npm install && npm run build"
+  command = "pipenv install && npm install && npm run build"
   publish = "implementacao-front/build"
   
   [build.environment]
@@ -12,6 +12,3 @@
     SITE_NAME = "venerable-bonbon-688429"
     URL = "https://venerable-bonbon-688429.netlify.app"
     PIPENV_VENV_IN_PROJECT = "true"
-
-[[plugins]]
-  package = "netlify-plugin-pipenv"
