@@ -1,14 +1,17 @@
 [build]
   command = "npm install && npm run build"
   publish = "implementacao-front/build"
-  environment = { 
-    BRANCH = "develop",
-    CONTEXT = "production",
-    DEPLOY_PRIME_URL = "https://develop--venerable-bonbon-688429.netlify.app",
-    DEPLOY_URL = "https://669570454108cf95263022da--venerable-bonbon-688429.netlify.app",
-    GO_VERSION = "1.19.x",
-    SITE_ID = "d698107d-1fa0-4025-9ecc-8b7e933ec224",
-    SITE_NAME = "venerable-bonbon-688429",
-    URL = "https://venerable-bonbon-688429.netlify.app",
-    PIPENV_VENV_IN_PROJECT = "true" 
-  }
+  
+  [build.environment]
+    BRANCH = "develop"
+    CONTEXT = "production"
+    DEPLOY_PRIME_URL = "https://develop--venerable-bonbon-688429.netlify.app"
+    DEPLOY_URL = "https://6695715c588c7d81a3bd8c42--venerable-bonbon-688429.netlify.app"
+    GO_VERSION = "1.19.x"
+    SITE_ID = "d698107d-1fa0-4025-9ecc-8b7e933ec224"
+    SITE_NAME = "venerable-bonbon-688429"
+    URL = "https://venerable-bonbon-688429.netlify.app"
+    PIPENV_VENV_IN_PROJECT = "true"
+
+[[plugins]]
+  package = "netlify-plugin-pipenv"
