@@ -12,3 +12,8 @@
     SITE_NAME = "venerable-bonbon-688429"
     URL = "https://venerable-bonbon-688429.netlify.app"
     PIPENV_VENV_IN_PROJECT = "true"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
