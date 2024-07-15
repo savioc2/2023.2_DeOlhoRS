@@ -1,6 +1,6 @@
 [build]
   command = "pipenv install && npm install && npm run build"
-  publish = "implementacao-front/build"
+  publish = "dist"
   
   [build.environment]
     BRANCH = "develop"
