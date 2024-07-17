@@ -9,5 +9,5 @@ services:
       - ./:/app
       - /app/node_modules
     ports:
-      - "5173:5173"  # Mapeie a porta correta usada pelo Vite dentro do contêiner
+      - "5173:5173"  # Mapeie a porta usada pelo Vite no contêiner
     command: npm run dev -- --host 0.0.0.0  # Adicione --host 0.0.0.0 para Vite escutar em todas as interfaces

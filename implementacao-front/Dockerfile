@@ -16,7 +16,6 @@ RUN npm install --legacy-peer-deps
 # dependências Python
 RUN pip3 install -r requirements.txt
 
-# Copiar o restante do código da aplicação para o diretório de trabalho no contêiner
 COPY . .
 
 # porta em que a aplicação estará rodando

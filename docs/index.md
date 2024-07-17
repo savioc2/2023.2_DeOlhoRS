@@ -1,9 +1,8 @@
 # <p style="text-align: center;">Seja bem-vindo ao DeOlhoRS!</p>
 
-Olá a todos,
 <p style="text-align: justify;">Somos o Squad 8, e temos o prazer de apresentar o nosso projeto desenvolvido como parte da disciplina de Métodos de Desenvolvimento de Software. Nosso objetivo principal é contribuir para a transparência e responsabilidade governamental, coletando diários oficiais municipais de diferentes municípios e analisando informações cruciais sobre nomeações e exonerações de servidores públicos.</p>
 
-## 💡 Ideia e Incentivo
+## Ideia e Incentivo
 <p style="text-align: justify;">A coleta e análise de informações em diários oficiais municipais desempenham um papel crucial na transparência e responsabilidade governamental. Esses documentos contêm informações vitais sobre a nomeação e exoneração de funcionários públicos, contratos públicos, licitações e outras atividades administrativas relevantes. Portanto, é fundamental ter uma ferramenta que possa automatizar esse processo e extrair informações relevantes para análise.</p>
 
 ## Para iniciar a Aplicação
