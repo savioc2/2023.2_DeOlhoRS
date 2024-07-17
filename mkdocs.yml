@@ -24,7 +24,10 @@ nav:
   - Artefatos:
       - Backlog: "Artefatos/Backlog.md"
       - Prototype: "Artefatos/Prototype.md"
-  - Arquitetura e Design do Sistema: "Arquitetura/Arquitetura.md"
+  - Arquitetura e Design do Sistema: 
+      - Visão Geral da Arquiteta: "Arquitetura/Arquitetura.md"
+  - Processos de Desenvolvimento: "/ProcessoDesenvolvimento/Desenvolvimento.md"
+      - Metodologia Agile/Scrum: "/ProcessoDesenvolvimento/MetodologiaScrum.md"
   - Gestão do Projeto:
       - Arquitetura: "Gestão do Projeto/Arquitetura.md"
       - Comunicação: "Gestão do Projeto/Comunicação.md"

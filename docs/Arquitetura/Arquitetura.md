@@ -13,19 +13,19 @@ A definição da arquitetura deste projeto foi moldada através de uma análise 
 - **Regex**:<p align="justify"> O texto extraído é processado utilizando expressões regulares para filtrar e formatar as informações desejadas.</p>
 - **Database.json**: <p align="justify">Os dados processados são armazenados em um arquivo JSON, que serve como banco de dados para os próximos componentes do sistema.</p>
 
-## Front-End (React)
+### Front-End (React)
 - **React Application**:<p align="justify"> O front-end é desenvolvido usando React mais vite, uma biblioteca JavaScript para construir interfaces de usuário. Ele se comunica com o banco de dados (Database.json) para obter os dados processados e exibi-los de forma interativa e dinâmica.</p>
 
-## Interação entre Back-End e Front-End
+### Interação entre Back-End e Front-End
 - <p align="justify">A interação entre o banco de dados (Database.json) e o front-end desenvolvido em React permite que os dados processados sejam exibidos ao usuário final.</p>
 
 ## Diagrama de Arquitetura
 <p align="justify"> Os diagramas de arquitetura fornecem uma visualização clara da estrutura e interação entre os componentes do sistema. (Nota: os diagramas devem ser criados e incorporados aqui utilizando ferramentas como Lucidchart, Draw.io, ou similares.) </p>
 
 <div style="text-align: center;">
-  <img src="/docs/Arquitetura/Arquitetura.png" alt="Diagrama de Arquitetura Geral">
+  <img src="Arquitetura.png" alt="Diagrama de Arquitetura Geral">
 </div>
-
+<br>
 <p align="justify">Esta arquitetura permite a coleta, processamento e exibição de dados de maneira eficiente e organizada. Isso porque após uma reunião com um dos membros do projeto que está se usando referência (Projeto [Exoonero](https://github.com/exoonero/extrator)), um dos tópicos mais questionados foi sobre o armazenamento dessa quantia de PDFs, .txt e dados de processamento do Regex. Foi mostrado que é possível realizar esse processo em tempo de execução de código para que não se tenha que armazenar para sempre esses dados, somente usar e apagar. Porém será necessário armazenar uma coisa: um arquivo .json que contém um "resumo" das informações, de onde será retirado os dados para montagem dos displays de dados no site.</p>
 
 ## Diagrama Sequencial 
